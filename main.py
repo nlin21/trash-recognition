@@ -16,6 +16,7 @@ url = 'http://129.161.161.235/stream'
 model = YOLO("best.pt").to(device)
 cap = cv2.VideoCapture(url)
 cap.set(cv2.CAP_PROP_BUFFERSIZE, 16)
+cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
 
 while (True):
     ret, im = cap.read()
