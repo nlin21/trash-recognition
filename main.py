@@ -14,8 +14,9 @@ print(f'Using device: {device}')
 url = 'http://129.161.161.235/stream'
 
 model = YOLO("best.pt").to(device)
+cap = cv2.VideoCapture(url)
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 16)
 
 while (True):
-    cap = cv2.VideoCapture(url)
     ret, im = cap.read()
     results = model.track(im, show=True)
