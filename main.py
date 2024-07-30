@@ -4,18 +4,28 @@ import torch
 from ultralytics import YOLO
 import cv2
 import time
+import sys
 
-device = 'cuda' if torch.cuda.is_available() else 'cpu'
-if device == "0":
-    torch.cuda.set_device(0)
+if __name__ == "__main__":
+    url = sys.argv[1] if len (sys.argv) > 1 else 'http://129.161.161.235/stream'
+    if not "http://" in url:
+        url = "http://" + url
 
-print(f'Using device: {device}')
+    if not "/stream" in url:
+        url += "/stream"
 
-url = 'http://129.161.161.235/stream'
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    if device == "0":
+        torch.cuda.set_device(0)
 
-model = YOLO("best.pt").to(device)
+    print(f'Using device: \t{device}')
+    print(f'At url: \t{url}')
 
-while (True):
+    model = YOLO("best.pt").to(device)
     cap = cv2.VideoCapture(url)
-    ret, im = cap.read()
-    results = model.track(im, show=True)
+    cap.set(cv2.CAP_PROP_BUFFERSIZE, 2)
+    cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
+
+    while (True):
+        ret, im = cap.read()
+        results = model.track(im, show=True)
