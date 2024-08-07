@@ -51,6 +51,6 @@ if __name__ == "__main__":
             D = -1
             actW = objects.get(name)
             if actW != None:
-                D = (actW * 3650) / w   # TODO: update focal length
+                D = (actW * 650) / w 
 
-            print(f"Coordinates: {x1}, {y1}, {w}, {h}, Class: {name}, Distance away: {D}")
+            print(f"Coordinates: {x1}, {y1}, {w}, {h} \nClass: {name} \nDistance away: {D}\n")
