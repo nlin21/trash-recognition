@@ -47,3 +47,11 @@ TODO:
    ![image](https://github.com/user-attachments/assets/24f552c2-98ae-4bfb-babb-4b323cefe070)
 
 6. Setup is now complete, plug in your camera device and run `python main.py`
+
+# Testing
+![image](https://github.com/user-attachments/assets/798fd587-08e1-42f0-adbd-122eec2f9d1a)
+
+![Screenshot 2024-11-24 at 1 39 24 PM](https://github.com/user-attachments/assets/5a2ee018-f0ac-47fd-9317-2777da5836f3)
+
+
+
